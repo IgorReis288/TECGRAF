@@ -1,0 +1,10 @@
+8898-E Falso
+0257-2 Falso
+0047-A Verdadeiro
+8229-8 Verdadeiro
+8840-4 Verdadeiro
+4214-F Falso
+2812-1 Verdadeiro
+1113-2 Verdadeiro
+4093-5 Verdadeiro
+4771-0 Falso

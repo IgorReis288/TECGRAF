@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>TECGRAF</title>
+</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<body>
+	<div id="alerta" th:fragment="alerta-redirect">
+	<div th:if="${success} != null">
+		<div class="alert alert-success alert-dismissible fade show alert-sucess"
+			role="alert">
+			<i class="oi oi-check"></i> <span> <strong
+				th:text="${success}"></strong>
+			</span>
+		</div>
+	</div>
+	<div th:if="${error} != null">
+		<div class="alert alert-danger alert-dismissible fade show alert-error"
+			role="alert">
+			<i class="oi oi-check"></i> <span> <strong
+				th:text="${error}"></strong>
+			</span>
+		</div>
+	</div>
+	</div>
+	<div>
+	<form th:action="@{/documento/validar}" th:object="${document}" enctype="multipart/form-data" method="POST">
+		<div class="form-row">	
+			<div class="form-group col-md-6">
+				<label for="file">Documento:</label> <br/>
+				<input th:field="*{file}" type="file"
+					id="file" class="form-control input-sm" /><br>
+			</div>
+		</div>
+		<br/>
+		<button type="submit" class="btn btn-primary">Validar </button>
+	</form>
+	</div>
+</body>
+</html>

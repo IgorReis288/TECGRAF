@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>TECGRAF</title>
+</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<body>
+<div id="alerta" th:fragment="alerta-redirect">
+	<div th:if="${success} != null">
+		<div class="alert alert-success alert-dismissible fade show alert-sucess"
+			role="alert">
+			<i class="oi oi-check"></i> <span> <strong
+				th:text="${success}"></strong>
+			</span>
+		</div>
+	</div>
+	<div th:if="${error} != null">
+		<div class="alert alert-danger alert-dismissible fade show alert-error"
+			role="alert">
+			<i class="oi oi-check"></i> <span> <strong
+				th:text="${error}"></strong>
+			</span>
+		</div>
+	</div>
+</div>
+
+<h2>Seja bem vindo ao Verificador de matrículas!</h2><br/>
+<h4>Por favor, escolha uma das funções:</h4>
+<br/>
+Gerar dígito verificador:
+<a th:href="@{/documento/geraDV}">Link<i style='font-size:24px;color:yellow' class='fa-file-alt'></i></a>
+<br/>
+Validar Dígito Verificador:
+<a th:href="@{/documento/verificaDV}">Link<i style='font-size:24px;color:yellow' class='fa-file-alt'></i></a>
+	<br/>
+	<div th:if="${matriculaDV} != null">
+		Download da matrícula com Dígito verificador.
+		<a th:href="@{/documento/Download/matriculaDV}" 
+		download="matriculasComDV.txt">
+		<img th:src="@{/image/iconDownload.jpeg}" width="5%" height="5%"></a>
+	</div>
+	<div  th:if="${validacaoDV} != null">
+		Download da análise do dígito verificador da matrícula.
+		<a th:href="@{/documento/Download/validacaoDV}" 
+		download="matriculaVerificada.txt"> 
+		<img th:src="@{/image/iconDownload.jpeg}" width="5%" height="5%"></a>
+	</div>
+	
+</body>
+</html>
